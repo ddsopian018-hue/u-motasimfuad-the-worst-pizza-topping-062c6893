@@ -11,7 +11,8 @@ const LINE =
   "Try our new pizza, topped with warm cottage cheese and gummy worms \u2014 it wiggles, it sweats, and somehow it blames you.";
 
 // Gate-check the line before writing it: a single line, valid UTF-8,
-// 1 to 200 characters, and not whitespace-only.
+// 1 to 200 characters, and not whitespace-only. A bad line here would
+// mean a rejected entry, so fail loudly instead of writing junk.
 if (LINE.length < 1 || LINE.length > 200) {
   throw new Error(`Line must be 1-200 characters, got ${LINE.length}`);
 }
